@@ -210,11 +210,11 @@
                 </svg>
             </button>
             
-            <!-- Tam Ekran Resim (Arka Plan) -->
-            <img id="ast-modal-img" src="" alt="" class="absolute inset-0 w-full h-full object-cover object-[20%_30%] opacity-70 z-0">
+            <!-- Kısmi Ekran Resim (Belli bir yere kadar gelip silikleşen) -->
+            <img id="ast-modal-img" src="" alt="" class="absolute inset-y-0 left-0 w-[90%] md:w-[65%] h-full object-cover object-[20%_30%] opacity-80 z-0" style="-webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%); mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);">
             
-            <!-- Sağdan Sola Siyah Gradient -->
-            <div class="absolute inset-0 bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+            <!-- Ekstra Sağ Okunabilirlik Gradienti -->
+            <div class="absolute inset-y-0 right-0 w-[70%] bg-gradient-to-l from-[#0a0b1a] via-[#0a0b1a]/90 to-transparent z-10 pointer-events-none"></div>
             
             <!-- Resmin Üstüne Binen İçerik (Sağa Dayalı) -->
             <div class="relative z-20 flex flex-col justify-center w-full h-full pl-[35%] md:pl-[45%] pr-6 md:pr-12 py-8 md:py-12 text-left drop-shadow-xl overflow-y-auto custom-scrollbar">
