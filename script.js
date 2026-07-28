@@ -45,15 +45,15 @@ const instruments = [
 const astWrapper = document.getElementById('astronomers-wrapper');
 astronomers.forEach((a, idx) => {
     astWrapper.innerHTML += `
-        <div class="swiper-slide soft-card flex relative overflow-hidden h-36 md:h-48 p-0 group cursor-pointer border border-[var(--card-border)] hover:border-[var(--color-purple)] transition-all" onclick="openAstModal(${idx})">
-            <!-- Tam Ekran Resim (Sola Yaslı Odak) -->
-            <img src="${a.img}" class="absolute inset-0 w-full h-full object-cover object-left opacity-70 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 z-0">
+        <div class="swiper-slide soft-card flex relative overflow-hidden aspect-[2/3] p-0 group cursor-pointer border border-[var(--card-border)] hover:border-[var(--color-purple)] transition-all" onclick="openAstModal(${idx})">
+            <!-- Tam Ekran Resim (Portre Odak) -->
+            <img src="${a.img}" class="absolute inset-0 w-full h-full object-cover object-top opacity-70 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 z-0">
             
-            <!-- Daha Hafif Sağdan Sola Gradient -->
-            <div class="absolute inset-0 bg-gradient-to-l from-black/80 via-black/40 to-transparent z-10 transition-opacity"></div>
+            <!-- Aşağıdan Yukarı Daha Hafif Gradient -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 transition-opacity"></div>
             
-            <!-- Başlık ve Alt Başlık (Gölge efekti eklendi) -->
-            <div class="relative z-20 flex flex-col justify-center w-full h-full pr-6 md:pr-8 pl-12 text-right items-end drop-shadow-xl">
+            <!-- Başlık ve Alt Başlık (Aşağıda Sola Yaslı) -->
+            <div class="relative z-20 flex flex-col justify-end w-full h-full p-4 md:p-6 text-left drop-shadow-xl">
                 <h3 class="text-base md:text-xl font-bold text-white group-hover:text-[var(--color-purple)] transition-colors leading-tight mb-2">${a.name}</h3>
                 <p class="text-xs md:text-sm text-[#d6cceb] font-semibold uppercase tracking-widest">${a.role}</p>
             </div>
@@ -67,8 +67,9 @@ new Swiper('.astronomersSwiper', {
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     breakpoints: {
         640: { slidesPerView: 2 },
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 }
+        768: { slidesPerView: 3 },
+        1024: { slidesPerView: 4 },
+        1280: { slidesPerView: 5 }
     }
 });
 
