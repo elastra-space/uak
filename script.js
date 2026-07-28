@@ -45,8 +45,16 @@ const instruments = [
 const astWrapper = document.getElementById('astronomers-wrapper');
 astronomers.forEach((a, idx) => {
     astWrapper.innerHTML += `
-        <div class="swiper-slide soft-card flex items-center justify-center text-center group cursor-pointer p-6 min-h-[100px] border border-[var(--card-border)] hover:border-[var(--color-purple)] transition-all" onclick="openAstModal(${idx})">
-            <h3 class="text-base md:text-lg font-bold text-white group-hover:text-[var(--color-purple)] transition-colors">${a.name}</h3>
+        <div class="swiper-slide soft-card flex relative overflow-hidden h-32 md:h-40 p-0 group cursor-pointer" onclick="openAstModal(${idx})">
+            <!-- Sol Taraftaki Resim (Geçişli) -->
+            <div class="absolute inset-y-0 left-0 w-1/2 z-0">
+                <img src="${a.img}" class="w-full h-full object-cover object-center opacity-70 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700" style="-webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%); mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);">
+            </div>
+            
+            <!-- Sadece Başlık -->
+            <div class="relative z-10 flex flex-col justify-center w-full pl-[45%] pr-4 py-4 text-left">
+                <h3 class="text-sm md:text-lg font-bold text-white group-hover:text-[var(--color-purple)] transition-colors leading-tight">${a.name}</h3>
+            </div>
         </div>
     `;
 });
@@ -57,8 +65,8 @@ new Swiper('.astronomersSwiper', {
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     breakpoints: {
         640: { slidesPerView: 2 },
-        768: { slidesPerView: 3 },
-        1024: { slidesPerView: 4 }
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
     }
 });
 
