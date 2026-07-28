@@ -55,7 +55,7 @@ astronomers.forEach((a, idx) => {
             <!-- Başlık ve Alt Başlık (Gölge efekti eklendi) -->
             <div class="relative z-20 flex flex-col justify-center w-full h-full pr-6 md:pr-8 pl-12 text-right items-end drop-shadow-xl">
                 <h3 class="text-base md:text-xl font-bold text-white group-hover:text-[var(--color-purple)] transition-colors leading-tight mb-2">${a.name}</h3>
-                <p class="text-xs md:text-sm text-[var(--color-purple)] font-semibold uppercase tracking-widest opacity-90">${a.role}</p>
+                <p class="text-xs md:text-sm text-[#d6cceb] font-semibold uppercase tracking-widest">${a.role}</p>
             </div>
         </div>
     `;
