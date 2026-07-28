@@ -46,14 +46,14 @@ const astWrapper = document.getElementById('astronomers-wrapper');
 astronomers.forEach((a, idx) => {
     astWrapper.innerHTML += `
         <div class="swiper-slide soft-card flex relative overflow-hidden h-36 md:h-48 p-0 group cursor-pointer border border-[var(--card-border)] hover:border-[var(--color-purple)] transition-all" onclick="openAstModal(${idx})">
-            <!-- Tam Ekran Resim (Kesilmeden) -->
-            <img src="${a.img}" class="absolute inset-0 w-full h-full object-cover object-center opacity-50 group-hover:scale-110 group-hover:opacity-70 transition-all duration-700 z-0">
+            <!-- Tam Ekran Resim (Sola Yaslı Odak) -->
+            <img src="${a.img}" class="absolute inset-0 w-full h-full object-cover object-left opacity-70 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 z-0">
             
-            <!-- Sağdan Sola Siyah Gradient (Yazıların kaynamaması için) -->
-            <div class="absolute inset-0 bg-gradient-to-l from-black via-black/80 to-transparent z-10 opacity-90"></div>
+            <!-- Daha Hafif Sağdan Sola Gradient -->
+            <div class="absolute inset-0 bg-gradient-to-l from-black/80 via-black/40 to-transparent z-10 transition-opacity"></div>
             
-            <!-- Başlık ve Alt Başlık (Sağa Yaslı) -->
-            <div class="relative z-20 flex flex-col justify-center w-full h-full pr-6 md:pr-8 pl-12 text-right items-end">
+            <!-- Başlık ve Alt Başlık (Gölge efekti eklendi) -->
+            <div class="relative z-20 flex flex-col justify-center w-full h-full pr-6 md:pr-8 pl-12 text-right items-end drop-shadow-xl">
                 <h3 class="text-base md:text-xl font-bold text-white group-hover:text-[var(--color-purple)] transition-colors leading-tight mb-2">${a.name}</h3>
                 <p class="text-xs md:text-sm text-[var(--color-purple)] font-semibold uppercase tracking-widest opacity-90">${a.role}</p>
             </div>
