@@ -2,14 +2,14 @@
 // DATA: Astronomers & Instruments
 // ==========================================
 const astronomers = [
-    { name: "Harezmi (780–850)", role: "Matematikçi ve Astronom", desc: "Cebir biliminin kurucularından; astrolojik ve astronomik tablolar hazırlamış, takvim hesaplamaları üzerine çalışmıştır.", img: "assets/images/harezmi.jpg" },
-    { name: "Battani (858–929)", role: "Astronom ve Matematikçi", desc: "Güneş yılı uzunluğunu hassas bir şekilde ölçmüş, trigonometriyi astronomiye uygulamıştır.", img: "assets/images/battani.jpg" },
+    { name: "Harezmi (780–850)", role: "Matematikçi ve Astronom", desc: "Cebir biliminin kurucularından; astrolojik ve astronomik tablolar hazırlamış, takvim hesaplamaları üzerine çalışmıştır.", img: "assets/images/harezmi.jfif" },
+    { name: "Battani (858–929)", role: "Astronom ve Matematikçi", desc: "Güneş yılı uzunluğunu hassas bir şekilde ölçmüş, trigonometriyi astronomiye uygulamıştır.", img: "assets/images/battani.jpeg" },
     { name: "Birûnî (973–1048)", role: "Matematikçi ve Astronom", desc: "Dünyanın çapını çok küçük bir hata payıyla ölçmüş, Güneş ve Ay hareketlerini incelemiştir.", img: "assets/images/biruni.jpg" },
     { name: "İbni Sina (980–1037)", role: "Filozof ve Bilim İnsanı", desc: "Astronomi ve doğal bilimler üzerine teorik çalışmalar yapmış, gözlem aletleri üzerine yazılar yazmıştır.", img: "assets/images/ibni_sina.jpg" },
     { name: "Ömer Hayyam (1048–1131)", role: "Matematikçi, Astronom ve Şair", desc: "Celâlî Takvimi’nin hazırlanmasında önemli rol oynamış; Güneş yılı hesaplamalarında büyük katkı sağlamıştır.", img: "assets/images/omer_hayyam.jpg" },
     { name: "Nasîrüddin Tûsî (1201–1274)", role: "Matematikçi ve Astronom", desc: "Meraga Rasathanesi'ni kurmuş; gezegen hareketlerini açıklayan 'Tûsî Çifti' modelini geliştirmiştir.", img: "assets/images/tusi.jpg" },
     { name: "Gıyaseddin Cemşid (1380–1429)", role: "Matematikçi ve Astronom", desc: "Ondalık kesirleri astronomi hesaplamalarında ilk kullananlardandır, gözlem aletleri tasarlamıştır.", img: "assets/images/kasi.jpg" },
-    { name: "Uluğ Bey (1394–1449)", role: "Timurlu Hükümdar ve Astronom", desc: "Semerkand Rasathanesi’nde gözlemler yapmış; döneminin en hassas yıldız kataloglarını hazırlamıştır.", img: "assets/images/ulug_bey.jpg" },
+    { name: "Uluğ Bey (1394–1449)", role: "Timurlu Hükümdar ve Astronom", desc: "Semerkand Rasathanesi’nde gözlemler yapmış; döneminin en hassas yıldız kataloglarını hazırlamıştır.", img: "assets/images/ulug_bey.jfif" },
     { name: "Ali Kuşçu (1403–1474)", role: "Astronom ve Matematikçi", desc: "Semerkand'dan İstanbul'a astronomi geleneğini taşımış, Osmanlı'da astronomi eğitimini kurumsallaştırmıştır.", img: "assets/images/ali_kuscu.jpg" },
     { name: "Takiyyüddin eş-Şami (1521–1585)", role: "Osmanlı Astronom", desc: "İstanbul Rasathanesi'ni kurmuş; saat mekanizmaları ve çok hassas astronomik aletler geliştirmiştir.", img: "assets/images/takiyyuddin.jpg" },
     { name: "Fatin Gökmen (1877–1955)", role: "Cumhuriyet Dönemi Astronomu", desc: "Kandilli Rasathanesi’nin kurucu yöneticisi olarak modern astronomiyi kurmuş ve halk için yayınlar yapmıştır.", img: "assets/images/fatin_gokmen.jpg" }
@@ -30,10 +30,10 @@ const historyData = [
 
 const instruments = [
     { name: "Usturlab", desc: "Gökyüzündeki Güneş, Ay, yıldızlar gibi cisimlerin konumlarını ölçmek için kullanılan eski bir astronomi alettir. Denizciler ve astronomlar, zamanı belirlemek, yönde bulmak ve gök cisimlerinin yüksekliğini ölçmek için usturlabı kullanırlardı.", img: "assets/images/astrolabe.jpg" },
-    { name: "Güneş Saati", desc: "Güneş'in gölgesini kullanarak zamanı gösteren en eski saat türüdür. Bir çubuğun gölgesinin yere düşen yönü ve uzunluğu, günün saatini belirlemek için kullanılır.", img: "assets/images/user_sundial.jfif" },
+    { name: "Güneş Saati", desc: "Güneş'in gölgesini kullanarak zamanı gösteren en eski saat türüdür. Bir çubuğun gölgesinin yere düşen yönü ve uzunluğu, günün saatini belirlemek için kullanılır.", img: "assets/images/gunes_saati.jfif" },
     { name: "Gnomon", desc: "Yere dik olarak yerleştirilen bir çubuktur. Güneşin gölgesine bakılarak zamanın ve Güneş'in yüksekliğinin ölçülmesini sağlar.", img: "assets/images/gnomon.jpg" },
-    { name: "Kadran", desc: "Gökyüzündeki Güneş veya yıldızların ufuktan yüksekliğini ölçmek için kullanılan dereceli bir astronomi aletidir.", img: "assets/images/user_kadran.jpeg" },
-    { name: "Rubu Tahtası", desc: "Rubu tahtası; gök cisimlerinin ufuk yüksekliğini ölçerek zamanı, yönü ve namaz vakitlerini belirlemeye yarayan çeyrek daire biçimli tarihi bir astronomi ve hesaplama aletidir.", img: "assets/images/user_rubu.jpg" },
+    { name: "Kadran", desc: "Gökyüzündeki Güneş veya yıldızların ufuktan yüksekliğini ölçmek için kullanılan dereceli bir astronomi aletidir.", img: "assets/images/kadran.jpeg" },
+    { name: "Rubu Tahtası", desc: "Rubu tahtası; gök cisimlerinin ufuk yüksekliğini ölçerek zamanı, yönü ve namaz vakitlerini belirlemeye yarayan çeyrek daire biçimli tarihi bir astronomi ve hesaplama aletidir.", img: "assets/images/rubu_tahtasi.jpg" },
     { name: "Altılık", desc: "Güneş veya yıldızların ufka göre açısını ölçmek için kullanılan özellikle denizcilikte yön bulmada işe yarayan bir alettir.", img: "assets/images/altilik.jpg" },
     { name: "Teleskop", desc: "Uzaktaki gök cisimlerini daha yakından ve net görmek için kullanılan optik bir alettir.", img: "assets/images/telescope.jpg" },
     { name: "Armillary Küre", desc: "Gökyüzünü ve gezegenlerin hareketlerini temsil eden, iç içe geçmiş metal halkalardan oluşan bir astronomi modelidir. Eskiden gök cisimlerinin konumlarını ve Dünyanın evrendeki yerini anlamak için kullanılırdı.", img: "assets/images/armillary.jpg" }
