@@ -287,37 +287,33 @@ if (filterSelect) {
 }
 
 // ==========================================
-// TSPARTICLES (Fancy & Subtle Constellations)
+// TSPARTICLES (Pure Stars Background)
 // ==========================================
 tsParticles.load("tsparticles", {
     fpsLimit: 60,
     particles: {
         number: {
-            value: 90,
+            value: 80,
             density: { enable: true, value_area: 800 }
         },
         color: { value: ["#ffffff", "#8b7bae", "#a192c3"] },
         shape: { type: "circle" },
         opacity: {
-            value: 0.5,
+            value: 0.3,
             random: true,
-            anim: { enable: true, speed: 0.5, opacity_min: 0.1, sync: false }
+            anim: { enable: true, speed: 0.3, opacity_min: 0.05, sync: false }
         },
         size: {
             value: 2,
             random: true,
-            anim: { enable: true, speed: 1, size_min: 0.5, sync: false }
+            anim: { enable: true, speed: 0.5, size_min: 0.5, sync: false }
         },
         links: {
-            enable: true,
-            distance: 130,
-            color: "#8b7bae",
-            opacity: 0.15,
-            width: 1
+            enable: false
         },
         move: {
             enable: true,
-            speed: 0.4,
+            speed: 0.3,
             direction: "none",
             random: true,
             straight: false,
@@ -326,11 +322,8 @@ tsParticles.load("tsparticles", {
     },
     interactivity: {
         events: { 
-            onHover: { enable: true, mode: "grab" }, 
+            onHover: { enable: false }, 
             onClick: { enable: false } 
-        },
-        modes: {
-            grab: { distance: 150, links: { opacity: 0.3 } }
         }
     },
     detectRetina: true
