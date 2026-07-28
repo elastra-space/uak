@@ -43,20 +43,10 @@ const instruments = [
 // RENDER ASTRONOMERS & INSTRUMENTS (DRY)
 // ==========================================
 const astWrapper = document.getElementById('astronomers-wrapper');
-astronomers.forEach(a => {
+astronomers.forEach((a, idx) => {
     astWrapper.innerHTML += `
-        <div class="swiper-slide soft-card flex relative overflow-hidden h-72 md:h-64 p-0 group cursor-grab">
-            <!-- Sol Taraftaki Resim (Geçişli) -->
-            <div class="absolute inset-y-0 left-0 w-3/5 z-0">
-                <img src="${a.img}" class="w-full h-full object-cover object-center opacity-80 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700" style="-webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%); mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);">
-            </div>
-            
-            <!-- Sağ Taraftaki İçerik -->
-            <div class="relative z-10 flex flex-col justify-center w-full pl-[45%] pr-6 py-6 text-left">
-                <h3 class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-[var(--color-purple)] transition-colors">${a.name}</h3>
-                <p class="text-sm text-[var(--color-purple)] font-semibold mb-3 uppercase tracking-wide">${a.role}</p>
-                <p class="text-xs md:text-sm text-gray-300 line-clamp-4 leading-relaxed">${a.desc}</p>
-            </div>
+        <div class="swiper-slide soft-card flex items-center justify-center text-center group cursor-pointer p-6 min-h-[100px] border border-[var(--card-border)] hover:border-[var(--color-purple)] transition-all" onclick="openAstModal(${idx})">
+            <h3 class="text-base md:text-lg font-bold text-white group-hover:text-[var(--color-purple)] transition-colors">${a.name}</h3>
         </div>
     `;
 });
@@ -66,8 +56,9 @@ new Swiper('.astronomersSwiper', {
     spaceBetween: 20,
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     breakpoints: {
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 2 }
+        640: { slidesPerView: 2 },
+        768: { slidesPerView: 3 },
+        1024: { slidesPerView: 4 }
     }
 });
 
@@ -148,6 +139,50 @@ document.querySelector('.modal-overlay').addEventListener('click', closeModal);
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
         closeModal();
+    }
+});
+
+// ==========================================
+// ASTRONOMER MODAL LOGIC
+// ==========================================
+const astModal = document.getElementById('astronomer-modal');
+const astModalContent = document.getElementById('astronomer-modal-content');
+const astModalImg = document.getElementById('ast-modal-img');
+const astModalTitle = document.getElementById('ast-modal-title');
+const astModalRole = document.getElementById('ast-modal-role');
+const astModalDesc = document.getElementById('ast-modal-desc');
+
+window.openAstModal = function(idx) {
+    const a = astronomers[idx];
+    astModalImg.src = a.img;
+    astModalTitle.textContent = a.name;
+    astModalRole.textContent = a.role;
+    astModalDesc.textContent = a.desc;
+    
+    astModal.classList.remove('hidden');
+    void astModal.offsetWidth;
+    astModal.classList.remove('opacity-0');
+    astModalContent.classList.remove('scale-95');
+    astModalContent.classList.add('scale-100');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeAstModal() {
+    astModal.classList.add('opacity-0');
+    astModalContent.classList.remove('scale-100');
+    astModalContent.classList.add('scale-95');
+    document.body.style.overflow = ''; 
+    
+    setTimeout(() => {
+        astModal.classList.add('hidden');
+    }, 300);
+}
+
+document.getElementById('close-ast-modal').addEventListener('click', closeAstModal);
+document.querySelector('.ast-modal-overlay').addEventListener('click', closeAstModal);
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !astModal.classList.contains('hidden')) {
+        closeAstModal();
     }
 });
 

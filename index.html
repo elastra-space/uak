@@ -193,8 +193,33 @@
                 <img id="modal-img" src="" alt="" class="w-full h-full object-contain p-2">
             </div>
             <div class="w-full md:w-1/2 flex flex-col justify-center">
-                <h3 id="modal-title" class="text-2xl font-bold text-white mb-4 text-[var(--color-purple)]"></h3>
+                <h3 id="modal-title" class="text-2xl font-bold text-white mb-2 text-[var(--color-purple)]"></h3>
+                <p id="modal-subtitle" class="text-sm font-semibold text-gray-400 mb-4 uppercase tracking-wide hidden"></p>
                 <p id="modal-desc" class="text-gray-300 leading-relaxed text-sm md:text-base"></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Astronomer Modal -->
+    <div id="astronomer-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm ast-modal-overlay cursor-pointer"></div>
+        <div class="relative w-11/12 max-w-3xl bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl p-0 shadow-2xl transform scale-95 transition-transform duration-300 flex overflow-hidden min-h-[400px]" id="astronomer-modal-content">
+            <button id="close-ast-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <!-- Left Image with Mask -->
+            <div class="absolute inset-y-0 left-0 w-3/5 z-0">
+                <img id="ast-modal-img" src="" alt="" class="w-full h-full object-cover object-center opacity-80" style="-webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%); mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);">
+            </div>
+            
+            <!-- Right Content -->
+            <div class="relative z-10 flex flex-col justify-center w-full pl-[45%] pr-8 py-8 text-left">
+                <h3 id="ast-modal-title" class="text-2xl md:text-3xl font-bold text-white mb-2 text-[var(--color-purple)]"></h3>
+                <p id="ast-modal-role" class="text-sm font-semibold text-gray-400 mb-6 uppercase tracking-wide"></p>
+                <p id="ast-modal-desc" class="text-sm md:text-base text-gray-300 leading-relaxed"></p>
             </div>
         </div>
     </div>
