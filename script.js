@@ -296,17 +296,17 @@ tsParticles.load("tsparticles", {
             value: 80,
             density: { enable: true, value_area: 800 }
         },
-        color: { value: ["#ffffff", "#8b7bae", "#a192c3"] },
+        color: { value: ["#ffffff", "#8b7bae", "#e2e8f0"] },
         shape: { type: "circle" },
         opacity: {
-            value: 0.3,
+            value: 0.7,
             random: true,
-            anim: { enable: true, speed: 0.3, opacity_min: 0.05, sync: false }
+            anim: { enable: true, speed: 0.4, opacity_min: 0.2, sync: false }
         },
         size: {
-            value: 2,
+            value: 2.5,
             random: true,
-            anim: { enable: true, speed: 0.5, size_min: 0.5, sync: false }
+            anim: { enable: true, speed: 0.5, size_min: 1, sync: false }
         },
         links: {
             enable: false
