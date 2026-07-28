@@ -45,7 +45,7 @@ const instruments = [
 const astWrapper = document.getElementById('astronomers-wrapper');
 astronomers.forEach((a, idx) => {
     astWrapper.innerHTML += `
-        <div class="swiper-slide soft-card flex relative overflow-hidden aspect-[2/3] p-0 group cursor-pointer border border-[var(--card-border)] hover:border-[var(--color-purple)] transition-all" onclick="openAstModal(${idx})">
+        <div class="swiper-slide soft-card flex relative overflow-hidden aspect-[5/4] p-0 group cursor-pointer border border-[var(--card-border)] hover:border-[var(--color-purple)] transition-all" onclick="openAstModal(${idx})">
             <!-- Tam Ekran Resim (Portre Odak) -->
             <img src="${a.img}" class="absolute inset-0 w-full h-full object-cover object-top opacity-70 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 z-0">
             
@@ -67,9 +67,9 @@ new Swiper('.astronomersSwiper', {
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     breakpoints: {
         640: { slidesPerView: 2 },
-        768: { slidesPerView: 3 },
-        1024: { slidesPerView: 4 },
-        1280: { slidesPerView: 5 }
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+        1280: { slidesPerView: 4 }
     }
 });
 
