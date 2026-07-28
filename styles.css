@@ -1,0 +1,214 @@
+/* Galaxy Theme (V8) - Navy & Pastel Purple */
+
+:root {
+    --bg-main: #0a0b1a; /* Koyu lacivert ağırlıklı */
+    --text-main: #f1f2f6;
+    --text-muted: #8b92b2;
+    
+    /* Buton ve Vurgu Renkleri */
+    --color-purple: #8b7bae; /* Pastel Mor / Lila */
+    --color-purple-hover: #a192c3;
+    --color-navy-light: #161833;
+    --color-outline: rgba(139, 123, 174, 0.3);
+    
+    /* Kart / Kutu Renkleri */
+    --card-bg: rgba(10, 11, 26, 0.7); /* Daha koyu, daha opak zemin (Göz yormasın diye) */
+    --card-border: rgba(139, 123, 174, 0.2);
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   DRY BUTTON CLASSES
+   ========================================== */
+.btn-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+}
+
+.btn-purple {
+    background: linear-gradient(135deg, #a192c3, #8b7bae);
+    color: #0a0b1a;
+    box-shadow: 0 4px 15px rgba(139, 123, 174, 0.3);
+}
+.btn-purple:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 123, 174, 0.4);
+}
+
+.btn-outline {
+    background: rgba(22, 24, 51, 0.5);
+    border: 1px solid var(--color-outline);
+    color: #e2e8f0;
+    backdrop-filter: blur(4px);
+}
+.btn-outline:hover {
+    background: rgba(139, 123, 174, 0.1);
+    border-color: rgba(139, 123, 174, 0.5);
+    color: #ffffff;
+}
+
+/* ==========================================
+   KART YAPI TAŞLARI (DRY)
+   ========================================== */
+.soft-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    backdrop-filter: blur(16px);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Öne çıkması için gölge */
+}
+.soft-card:hover {
+    background: rgba(15, 17, 35, 0.85);
+    border-color: rgba(139, 123, 174, 0.4);
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   GALAXY GEZEGENLER (Uzayıandıran Işıklar)
+   ========================================== */
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(8px);
+}
+
+.planet-large-purple {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle at 30% 30%, #4a3f6e, #261f44, transparent);
+    top: -100px;
+    right: -200px;
+    opacity: 0.2; /* Daha soluk */
+    animation: float 30s infinite alternate ease-in-out;
+}
+
+.planet-medium-blue {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle at 30% 30%, #304780, #141c3a, transparent);
+    bottom: 20%;
+    left: -100px;
+    opacity: 0.15; /* Daha soluk */
+    animation: float 25s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(30px) scale(1.05); }
+}
+
+/* ==========================================
+   TABLE DESIGN (Takvimler)
+   ========================================== */
+.table-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: rgba(10, 11, 26, 0.85); /* Daha koyu zemin */
+    border: 1px solid var(--card-border);
+    border-radius: 1.5rem;
+    backdrop-filter: blur(16px);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-purple) var(--bg-main);
+    position: relative;
+    box-sizing: border-box;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+.table-container::-webkit-scrollbar { height: 8px; }
+.table-container::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 4px; }
+.table-container::-webkit-scrollbar-thumb { background: var(--color-purple); border-radius: 4px; }
+
+.galaxy-table {
+    width: 100%;
+    min-width: max-content;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
+    table-layout: auto;
+}
+
+.galaxy-table th {
+    background: rgba(139, 123, 174, 0.1);
+    color: #e2e8f0;
+    font-weight: 600;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid var(--card-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    word-wrap: break-word;
+    min-width: 180px; /* Prevents squishing on mobile */
+}
+
+.galaxy-table td {
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    vertical-align: top;
+    transition: background 0.2s ease;
+    word-wrap: break-word;
+    min-width: 180px; /* Prevents squishing on mobile */
+}
+
+.galaxy-table tr:last-child td {
+    border-bottom: none;
+}
+
+.galaxy-table tr:hover td {
+    background: rgba(139, 123, 174, 0.05);
+    color: #ffffff;
+}
+
+/* Highlight the first column (Calendar Name) */
+.galaxy-table td:first-child {
+    font-weight: bold;
+    color: var(--color-purple);
+}
+.galaxy-table th:first-child {
+    font-weight: bold;
+}
+
+/* ==========================================
+   SWIPER OVERRIDES
+   ========================================== */
+.swiper-button-next, .swiper-button-prev {
+    color: var(--color-purple) !important;
+    background: rgba(139, 123, 174, 0.1);
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    backdrop-filter: blur(4px);
+}
+.swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 1.2rem !important;
+}
+.swiper-pagination-bullet {
+    background: rgba(255,255,255,0.3) !important;
+}
+.swiper-pagination-bullet-active {
+    background: var(--color-purple) !important;
+    box-shadow: 0 0 10px var(--color-purple);
+}

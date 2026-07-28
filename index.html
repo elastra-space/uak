@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro | Galaksi Sırları</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans antialiased text-gray-300 relative overflow-x-hidden w-full max-w-[100vw]">
+    
+    <!-- CSS Gezegenler (Galaxy Nebulas) -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="planet planet-large-purple"></div>
+        <div class="planet planet-medium-blue"></div>
+    </div>
+    
+    <!-- tsParticles Container (Flying Stars) -->
+    <div id="tsparticles" class="fixed inset-0 z-0 pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <nav class="relative z-50 pt-12 px-8 md:px-16 flex flex-col items-center justify-center gap-6 max-w-7xl mx-auto">
+        <div class="font-bold text-3xl text-white uppercase tracking-widest text-[var(--color-purple)]">
+            ASTRO
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 md:gap-10 text-sm text-gray-400">
+            <a href="#history" class="hover:text-white transition-colors">Tarihsel</a>
+            <a href="#astronomers" class="hover:text-white transition-colors">Astronomlar</a>
+            <a href="#instruments" class="hover:text-white transition-colors">Araçlar</a>
+            <a href="#calendars" class="hover:text-white transition-colors">Takvimler</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-[60vh] flex justify-center items-center text-center z-10 px-8 md:px-16 max-w-7xl mx-auto">
+        <div class="max-w-4xl flex flex-col items-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+                İslam Medeniyetinde Astronomi Mirası
+            </h1>
+            <p class="text-lg text-gray-400 leading-relaxed max-w-2xl">
+                İslam bilim tarihinde takvim sistemleri ve astronomi, yüzyıllar boyunca köklü bir gözlem geleneğiyle şekillenmiştir.
+            </p>
+        </div>
+    </header>
+
+    <main class="relative z-10 pb-32">
+        
+        <!-- HISTORY SECTION -->
+        <section id="history" class="py-20 px-8 md:px-16 max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-white mb-16 relative">
+                <span class="relative z-10">Tarihsel Süreçte Astronomi ve Zaman</span>
+                <div class="absolute w-32 h-1 bg-[var(--color-purple)] bottom-[-15px] left-1/2 transform -translate-x-1/2 rounded-full shadow-[0_0_15px_rgba(139,123,174,0.6)]"></div>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12" id="history-grid">
+                <!-- JS ile doldurulacak -->
+            </div>
+        </section>
+
+        <!-- ASTRONOMERS SECTION (Swiper) -->
+        <section id="astronomers" class="py-20 px-8 md:px-16 max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-12">
+                <h2 class="text-3xl font-bold text-white">İslam Dünyası Bilim İnsanları</h2>
+                <div class="flex gap-2">
+                    <div class="swiper-button-prev static mt-0 w-12 h-12"></div>
+                    <div class="swiper-button-next static mt-0 w-12 h-12"></div>
+                </div>
+            </div>
+
+            <div class="swiper astronomersSwiper overflow-visible">
+                <div class="swiper-wrapper" id="astronomers-wrapper">
+                    <!-- JS ile doldurulacak -->
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTRUMENTS SECTION -->
+        <section id="instruments" class="py-20 px-4 md:px-16 max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-12 pl-4 md:pl-0">Gözlem Araçları</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6" id="instruments-grid">
+                <!-- JS ile doldurulacak -->
+            </div>
+        </section>
+
+        <!-- CALENDARS SECTION (Full Table) -->
+        <section id="calendars" class="py-20 px-4 md:px-16 max-w-[90rem] mx-auto">
+            <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4">Takvim Sistemleri Karşılaştırması</h2>
+                    <p class="text-gray-400 text-sm">Karşılaştırmalı matematiksel analiz verileri. Sütunları daraltmak için filtreyi kullanın.</p>
+                </div>
+                <div class="w-full md:w-64">
+                    <label for="calendarFilter" class="block text-sm text-[var(--color-purple)] font-semibold mb-2 uppercase tracking-wide">Takvim Filtresi</label>
+                    <select id="calendarFilter" class="w-full bg-[var(--card-bg)] border border-[var(--card-border)] text-white text-sm rounded-lg p-3 outline-none focus:border-[var(--color-purple)] transition-colors">
+                        <option value="all">Tüm Takvimler</option>
+                        <!-- JS ile doldurulacak -->
+                    </select>
+                </div>
+            </div>
+            
+            <div class="table-container w-full max-w-full relative">
+                <table class="galaxy-table">
+                    <thead>
+                        <tr id="calendar-table-head">
+                            <!-- JS will populate TH elements -->
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-table-body">
+                        <!-- JS will populate TR elements -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- KAYNAKÇA (REFERENCES) -->
+        <section id="references" class="py-20 px-8 md:px-16 max-w-7xl mx-auto border-t border-[var(--card-border)] mt-12">
+            <h2 class="text-3xl font-bold text-white mb-12">Kaynakça</h2>
+            <div class="flex flex-col gap-12">
+                <div>
+                    <h4 class="text-[var(--color-purple)] font-semibold mb-4 uppercase tracking-widest text-sm">Görsel Kaynaklar</h4>
+                    <ul class="space-y-3 font-light text-gray-400 text-sm">
+                        <li>Wikimedia Commons</li>
+                        <li>Unsplash</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <footer class="py-8 border-t border-[var(--card-border)] text-center relative z-10">
+        <p class="text-sm text-gray-500 tracking-widest">2026 &copy; ASTRO</p>
+    </footer>
+    
+    <!-- History Modal -->
+    <div id="history-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm history-modal-overlay cursor-pointer"></div>
+        <div class="relative w-11/12 max-w-4xl bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl p-6 md:p-12 shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col gap-6 md:gap-8 max-h-[90vh] overflow-y-auto" id="history-modal-content">
+            <button id="close-history-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="w-full h-48 md:h-80 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(139,123,174,0.2)] relative flex-shrink-0">
+                <img id="h-modal-img" src="" alt="" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-main)] to-transparent opacity-80 z-10 pointer-events-none"></div>
+                <h3 id="h-modal-title" class="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 text-2xl md:text-4xl font-bold text-white z-20"></h3>
+            </div>
+            <div class="w-full relative px-2 md:px-0">
+                <div class="absolute -top-10 -left-2 md:-left-4 text-7xl md:text-9xl text-[var(--color-purple)] opacity-10 font-serif select-none pointer-events-none">"</div>
+                <p id="h-modal-desc" class="text-gray-300 leading-relaxed text-sm md:text-lg relative z-10">
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="instrument-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm modal-overlay cursor-pointer"></div>
+        <div class="relative w-11/12 max-w-2xl bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl p-6 md:p-8 shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col md:flex-row gap-8" id="instrument-modal-content">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="w-full md:w-1/2 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(139,123,174,0.2)] h-48 md:h-64 flex-shrink-0 flex items-center justify-center bg-black/30">
+                <img id="modal-img" src="" alt="" class="w-full h-full object-contain p-2">
+            </div>
+            <div class="w-full md:w-1/2 flex flex-col justify-center">
+                <h3 id="modal-title" class="text-2xl font-bold text-white mb-4 text-[var(--color-purple)]"></h3>
+                <p id="modal-desc" class="text-gray-300 leading-relaxed text-sm md:text-base"></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Swiper Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- tsParticles Script -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-engine@2/tsparticles.engine.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-basic@2/tsparticles.basic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-shape-circle@2/tsparticles.shape.circle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-updater-color@2/tsparticles.updater.color.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-updater-opacity@2/tsparticles.updater.opacity.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-updater-size@2/tsparticles.updater.size.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-move-base@2/tsparticles.move.base.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
