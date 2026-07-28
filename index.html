@@ -210,14 +210,14 @@
                 </svg>
             </button>
             
-            <!-- Kısmi Ekran Resim (Belli bir yere kadar gelip silikleşen) -->
-            <img id="ast-modal-img" src="" alt="" class="absolute inset-y-0 left-0 w-[90%] md:w-[65%] h-full object-cover object-[20%_30%] opacity-80 z-0" style="-webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%); mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);">
+            <!-- Responsive Kısmi Ekran Resim -->
+            <img id="ast-modal-img" src="" alt="" class="absolute top-0 left-0 w-full h-[60%] md:h-full md:w-[65%] object-cover object-[50%_20%] opacity-80 z-0 modal-fade-mask">
             
-            <!-- Ekstra Sağ Okunabilirlik Gradienti -->
-            <div class="absolute inset-y-0 right-0 w-[70%] bg-gradient-to-l from-[#0a0b1a] via-[#0a0b1a]/90 to-transparent z-10 pointer-events-none"></div>
+            <!-- Ekstra Okunabilirlik Gradienti (Mobilde alttan yukarı, masaüstünde sağdan sola) -->
+            <div class="absolute inset-x-0 bottom-0 h-[60%] md:inset-x-auto md:inset-y-0 md:right-0 md:h-full md:w-[70%] bg-gradient-to-t md:bg-gradient-to-l from-[#0a0b1a] via-[#0a0b1a]/90 to-transparent z-10 pointer-events-none"></div>
             
-            <!-- Resmin Üstüne Binen İçerik (Sağa Dayalı) -->
-            <div class="relative z-20 flex flex-col justify-center w-full h-full pl-[35%] md:pl-[45%] pr-6 md:pr-12 py-8 md:py-12 text-left drop-shadow-xl overflow-y-auto custom-scrollbar">
+            <!-- Resmin Üstüne Binen İçerik -->
+            <div class="relative z-20 flex flex-col justify-end md:justify-center w-full h-full pt-[55%] md:pt-12 md:pl-[45%] px-6 md:pr-12 pb-8 md:pb-12 text-left md:text-left drop-shadow-xl overflow-y-auto custom-scrollbar">
                 <h3 id="ast-modal-title" class="text-2xl md:text-4xl font-bold text-white mb-2 text-[var(--color-purple)]"></h3>
                 <p id="ast-modal-role" class="text-sm md:text-base font-semibold text-[#d6cceb] mb-4 md:mb-6 uppercase tracking-wide"></p>
                 <p id="ast-modal-desc" class="text-sm md:text-base text-gray-200 leading-relaxed"></p>
