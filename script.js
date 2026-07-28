@@ -45,9 +45,9 @@ const instruments = [
 const astWrapper = document.getElementById('astronomers-wrapper');
 astronomers.forEach((a, idx) => {
     astWrapper.innerHTML += `
-        <div class="swiper-slide soft-card flex relative overflow-hidden aspect-[5/4] p-0 group cursor-pointer border border-[var(--card-border)] hover:border-[var(--color-purple)] transition-all" onclick="openAstModal(${idx})">
-            <!-- Tam Ekran Resim (Portre Odak) -->
-            <img src="${a.img}" class="absolute inset-0 w-full h-full object-cover object-top opacity-70 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 z-0">
+        <div class="swiper-slide soft-card flex relative overflow-hidden aspect-square p-0 group cursor-pointer border border-[var(--card-border)] hover:border-[var(--color-purple)] transition-all" onclick="openAstModal(${idx})">
+            <!-- Tam Ekran Resim (Dengeli Kırpma İçin Kare Oran ve Üst Odak) -->
+            <img src="${a.img}" class="absolute inset-0 w-full h-full object-cover object-[50%_30%] opacity-70 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 z-0">
             
             <!-- Aşağıdan Yukarı Daha Hafif Gradient -->
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 transition-opacity"></div>
