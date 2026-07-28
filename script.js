@@ -45,13 +45,18 @@ const instruments = [
 const astWrapper = document.getElementById('astronomers-wrapper');
 astronomers.forEach(a => {
     astWrapper.innerHTML += `
-        <div class="swiper-slide soft-card flex flex-col items-center text-center group">
-            <div class="relative w-24 h-24 mb-4">
-                <img src="${a.img}" class="w-full h-full rounded-full object-cover border-2 border-[var(--color-outline)] group-hover:border-[var(--color-purple)] transition-colors">
+        <div class="swiper-slide soft-card flex relative overflow-hidden h-72 md:h-64 p-0 group cursor-grab">
+            <!-- Sol Taraftaki Resim (Geçişli) -->
+            <div class="absolute inset-y-0 left-0 w-3/5 z-0">
+                <img src="${a.img}" class="w-full h-full object-cover object-center opacity-80 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700" style="-webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%); mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);">
             </div>
-            <h3 class="text-xl font-bold text-white mb-1">${a.name}</h3>
-            <p class="text-sm text-[var(--color-purple)] font-semibold mb-4">${a.role}</p>
-            <p class="text-sm text-gray-400 line-clamp-3">${a.desc}</p>
+            
+            <!-- Sağ Taraftaki İçerik -->
+            <div class="relative z-10 flex flex-col justify-center w-full pl-[45%] pr-6 py-6 text-left">
+                <h3 class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-[var(--color-purple)] transition-colors">${a.name}</h3>
+                <p class="text-sm text-[var(--color-purple)] font-semibold mb-3 uppercase tracking-wide">${a.role}</p>
+                <p class="text-xs md:text-sm text-gray-300 line-clamp-4 leading-relaxed">${a.desc}</p>
+            </div>
         </div>
     `;
 });
@@ -61,8 +66,8 @@ new Swiper('.astronomersSwiper', {
     spaceBetween: 20,
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     breakpoints: {
-        640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 }
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 2 }
     }
 });
 
