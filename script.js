@@ -33,7 +33,7 @@ const instruments = [
     { name: "Güneş Saati", desc: "Güneş'in gölgesini kullanarak zamanı gösteren en eski saat türüdür. Bir çubuğun gölgesinin yere düşen yönü ve uzunluğu, günün saatini belirlemek için kullanılır.", img: "assets/images/sundial.jpg" },
     { name: "Gnomon", desc: "Yere dik olarak yerleştirilen bir çubuktur. Güneşin gölgesine bakılarak zamanın ve Güneş'in yüksekliğinin ölçülmesini sağlar.", img: "assets/images/gnomon.jpg" },
     { name: "Kadran", desc: "Gökyüzündeki Güneş veya yıldızların ufuktan yüksekliğini ölçmek için kullanılan dereceli bir astronomi aletidir.", img: "assets/images/kadran.jpg" },
-    { name: "Murabba", desc: "Gökcisimlerinin yüksekliğini ve yönünü hesaplamak için kullanılan kare biçiminde bir astronomi aletidir.", img: "assets/images/murabba.jpg" },
+    { name: "Rubu Tahtası", desc: "Rubu tahtası; gök cisimlerinin ufuk yüksekliğini ölçerek zamanı, yönü ve namaz vakitlerini belirlemeye yarayan çeyrek daire biçimli tarihi bir astronomi ve hesaplama aletidir.", img: "assets/images/murabba.jpg" },
     { name: "Altılık", desc: "Güneş veya yıldızların ufka göre açısını ölçmek için kullanılan özellikle denizcilikte yön bulmada işe yarayan bir alettir.", img: "assets/images/altilik.jpg" },
     { name: "Teleskop", desc: "Uzaktaki gök cisimlerini daha yakından ve net görmek için kullanılan optik bir alettir.", img: "assets/images/telescope.jpg" },
     { name: "Armillary Küre", desc: "Gökyüzünü ve gezegenlerin hareketlerini temsil eden, iç içe geçmiş metal halkalardan oluşan bir astronomi modelidir. Eskiden gök cisimlerinin konumlarını ve Dünyanın evrendeki yerini anlamak için kullanılırdı.", img: "assets/images/armillary.jpg" }
