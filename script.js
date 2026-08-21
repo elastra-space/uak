@@ -39,6 +39,15 @@ const instruments = [
     { name: "Armillary Küre", desc: "Gökyüzünü ve gezegenlerin hareketlerini temsil eden, iç içe geçmiş metal halkalardan oluşan bir astronomi modelidir. Eskiden gök cisimlerinin konumlarını ve Dünyanın evrendeki yerini anlamak için kullanılırdı.", img: "assets/images/armillary.jpg" }
 ];
 
+const calendarSystemsData = [
+    { name: "Celâlî Takvimi", role: "1079 • Selçuklu İmparatorluğu", desc: "Ömer Hayyam'ın başını çektiği bir heyet tarafından Sultan Melikşah için hazırlanmıştır. Güneş yılını esas alır. Günümüzde kullandığımız Miladi takvimden çok daha hassas bir hesaplamaya (33 yılda 8 artık yıl) sahiptir.", img: "assets/calendars/celali.jpg" },
+    { name: "Miladî Takvim", role: "1582 • Papalık / Evrensel", desc: "Papa XIII. Gregorius tarafından Jülyen takvimindeki hata paylarını düzeltmek için yaptırılmıştır. Güneş yılını esas alır ve günümüzde dünyada en yaygın kullanılan sivil takvim sistemidir.", img: "assets/calendars/miladi.jpg" },
+    { name: "Hicrî Takvim", role: "639 • İslam Dünyası", desc: "Hz. Ömer döneminde oluşturulmuş, başlangıç olarak Hz. Muhammed'in Mekke'den Medine'ye hicretini (622) alır. Ay'ın döngülerini (Ay yılı) esas alan 354 günlük dini bir takvimdir.", img: "assets/calendars/hicri.jpg" },
+    { name: "Rûmî Takvim", role: "1840 • Osmanlı İmparatorluğu", desc: "Osmanlı Devleti'nde mali ve resmi işleri mevsimlerle uyumlu hale getirmek için geliştirilmiştir. Başlangıcı yine Hicret'tir ancak hesaplama olarak Güneş yılını (Jülyen) esas alır.", img: "assets/calendars/rumi.jpg" },
+    { name: "Jülyen Takvimi", role: "M.Ö. 46 • Roma İmparatorluğu", desc: "Jül Sezar tarafından İskenderiyeli astronom Sosigenes'in önerisiyle yürürlüğe konan güneş takvimidir. 365,25 gün esasına dayanır, ancak her 128 yılda 1 gün hata verdiği için 1582'de Miladi takvimle değiştirilmiştir.", img: "assets/calendars/julian.jpg" },
+    { name: "12 Hayvanlı Türk Takvimi", role: "Antik Çağ • Orta Asya", desc: "Eski Türklerin ve Asya boylarının kullandığı ilk güneş takvimidir. Her yılın bir hayvan adıyla (Sıçan, Pars, Ejderha, Yılan vb.) anıldığı 12 yıllık döngülere sahiptir.", img: "assets/calendars/turkic.jpg" }
+];
+
 // ==========================================
 // RENDER ASTRONOMERS & INSTRUMENTS (DRY)
 // ==========================================
@@ -72,6 +81,37 @@ new Swiper('.astronomersSwiper', {
         1280: { slidesPerView: 4 }
     }
 });
+
+// ==========================================
+// RENDER CALENDAR SYSTEMS
+// ==========================================
+const calSysWrapper = document.getElementById('calendar-systems-wrapper');
+if (calSysWrapper) {
+    calendarSystemsData.forEach((c, idx) => {
+        calSysWrapper.innerHTML += `
+            <div class="swiper-slide soft-card flex relative overflow-hidden aspect-square p-0 group cursor-pointer border border-[var(--card-border)] hover:border-[var(--color-purple)] transition-all" onclick="openCalModal(${idx})">
+                <img src="${c.img}" class="absolute inset-0 w-full h-full object-cover object-[50%_30%] opacity-70 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 z-0">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 transition-opacity"></div>
+                <div class="relative z-20 flex flex-col justify-end w-full h-full p-4 md:p-6 text-left drop-shadow-xl">
+                    <h3 class="text-base md:text-xl font-bold text-white group-hover:text-[var(--color-purple)] transition-colors leading-tight mb-2">${c.name}</h3>
+                    <p class="text-xs md:text-sm text-[#d6cceb] font-semibold uppercase tracking-widest">${c.role}</p>
+                </div>
+            </div>
+        `;
+    });
+
+    new Swiper('.calendarSystemsSwiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: { nextEl: '.cal-swiper-button-next', prevEl: '.cal-swiper-button-prev' },
+        breakpoints: {
+            640: { slidesPerView: 2 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+            1280: { slidesPerView: 4 }
+        }
+    });
+}
 
 // ==========================================
 // RENDER HISTORY CARDS
@@ -119,12 +159,12 @@ const modalImg = document.getElementById('modal-img');
 const modalTitle = document.getElementById('modal-title');
 const modalDesc = document.getElementById('modal-desc');
 
-window.openModal = function(idx) {
+window.openModal = function (idx) {
     const i = instruments[idx];
     modalImg.src = i.img;
     modalTitle.textContent = i.name;
     modalDesc.textContent = i.desc;
-    
+
     modal.classList.remove('hidden');
     // Force reflow
     void modal.offsetWidth;
@@ -138,8 +178,8 @@ function closeModal() {
     modal.classList.add('opacity-0');
     modalContent.classList.remove('scale-100');
     modalContent.classList.add('scale-95');
-    document.body.style.overflow = ''; 
-    
+    document.body.style.overflow = '';
+
     setTimeout(() => {
         modal.classList.add('hidden');
     }, 300);
@@ -163,13 +203,13 @@ const astModalTitle = document.getElementById('ast-modal-title');
 const astModalRole = document.getElementById('ast-modal-role');
 const astModalDesc = document.getElementById('ast-modal-desc');
 
-window.openAstModal = function(idx) {
+window.openAstModal = function (idx) {
     const a = astronomers[idx];
     astModalImg.src = a.img;
     astModalTitle.textContent = a.name;
     astModalRole.textContent = a.role;
     astModalDesc.textContent = a.desc;
-    
+
     astModal.classList.remove('hidden');
     void astModal.offsetWidth;
     astModal.classList.remove('opacity-0');
@@ -182,8 +222,8 @@ function closeAstModal() {
     astModal.classList.add('opacity-0');
     astModalContent.classList.remove('scale-100');
     astModalContent.classList.add('scale-95');
-    document.body.style.overflow = ''; 
-    
+    document.body.style.overflow = '';
+
     setTimeout(() => {
         astModal.classList.add('hidden');
     }, 300);
@@ -206,12 +246,12 @@ const hModalImg = document.getElementById('h-modal-img');
 const hModalTitle = document.getElementById('h-modal-title');
 const hModalDesc = document.getElementById('h-modal-desc');
 
-window.openHistoryModal = function(idx) {
+window.openHistoryModal = function (idx) {
     const h = historyData[idx];
     hModalImg.src = h.img;
     hModalTitle.textContent = h.title;
     hModalDesc.textContent = h.desc;
-    
+
     hModal.classList.remove('hidden');
     void hModal.offsetWidth;
     hModal.classList.remove('opacity-0');
@@ -224,8 +264,8 @@ function closeHistoryModal() {
     hModal.classList.add('opacity-0');
     hModalContent.classList.remove('scale-100');
     hModalContent.classList.add('scale-95');
-    document.body.style.overflow = ''; 
-    
+    document.body.style.overflow = '';
+
     setTimeout(() => {
         hModal.classList.add('hidden');
     }, 300);
@@ -238,6 +278,54 @@ document.addEventListener('keydown', (e) => {
         closeHistoryModal();
     }
 });
+
+// ==========================================
+// CALENDAR MODAL LOGIC
+// ==========================================
+const calModal = document.getElementById('calendar-modal');
+const calModalContent = document.getElementById('calendar-modal-content');
+const calModalImg = document.getElementById('cal-modal-img');
+const calModalTitle = document.getElementById('cal-modal-title');
+const calModalRole = document.getElementById('cal-modal-role');
+const calModalDesc = document.getElementById('cal-modal-desc');
+
+window.openCalModal = function (idx) {
+    if(!calModal) return;
+    const c = calendarSystemsData[idx];
+    calModalImg.src = c.img;
+    calModalTitle.textContent = c.name;
+    calModalRole.textContent = c.role;
+    calModalDesc.textContent = c.desc;
+
+    calModal.classList.remove('hidden');
+    void calModal.offsetWidth;
+    calModal.classList.remove('opacity-0');
+    calModalContent.classList.remove('scale-95');
+    calModalContent.classList.add('scale-100');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCalModal() {
+    if(!calModal) return;
+    calModal.classList.add('opacity-0');
+    calModalContent.classList.remove('scale-100');
+    calModalContent.classList.add('scale-95');
+    document.body.style.overflow = '';
+
+    setTimeout(() => {
+        calModal.classList.add('hidden');
+    }, 300);
+}
+
+if (calModal) {
+    document.getElementById('close-cal-modal').addEventListener('click', closeCalModal);
+    document.querySelector('.cal-modal-overlay').addEventListener('click', closeCalModal);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !calModal.classList.contains('hidden')) {
+            closeCalModal();
+        }
+    });
+}
 
 // ==========================================
 // DATA: Comprehensive Calendars (from Excel)
@@ -372,9 +460,9 @@ tsParticles.load("tsparticles", {
         }
     },
     interactivity: {
-        events: { 
-            onHover: { enable: false }, 
-            onClick: { enable: false } 
+        events: {
+            onHover: { enable: false },
+            onClick: { enable: false }
         }
     },
     detectRetina: true
