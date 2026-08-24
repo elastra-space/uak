@@ -43,9 +43,7 @@ const calendarSystemsData = [
     { name: "Celâlî Takvimi", role: "1079 • Selçuklu İmparatorluğu", desc: "Ömer Hayyam'ın başını çektiği bir heyet tarafından Sultan Melikşah için hazırlanmıştır. Güneş yılını esas alır. Günümüzde kullandığımız Miladi takvimden çok daha hassas bir hesaplamaya (33 yılda 8 artık yıl) sahiptir.", img: "assets/calendars/celali.jpg" },
     { name: "Miladî Takvim", role: "1582 • Papalık / Evrensel", desc: "Papa XIII. Gregorius tarafından Jülyen takvimindeki hata paylarını düzeltmek için yaptırılmıştır. Güneş yılını esas alır ve günümüzde dünyada en yaygın kullanılan sivil takvim sistemidir.", img: "assets/calendars/miladi.jpg" },
     { name: "Hicrî Takvim", role: "639 • İslam Dünyası", desc: "Hz. Ömer döneminde oluşturulmuş, başlangıç olarak Hz. Muhammed'in Mekke'den Medine'ye hicretini (622) alır. Ay'ın döngülerini (Ay yılı) esas alan 354 günlük dini bir takvimdir.", img: "assets/calendars/hicri.jpg" },
-    { name: "Rûmî Takvim", role: "1840 • Osmanlı İmparatorluğu", desc: "Osmanlı Devleti'nde mali ve resmi işleri mevsimlerle uyumlu hale getirmek için geliştirilmiştir. Başlangıcı yine Hicret'tir ancak hesaplama olarak Güneş yılını (Jülyen) esas alır.", img: "assets/calendars/rumi.jpg" },
-    { name: "Jülyen Takvimi", role: "M.Ö. 46 • Roma İmparatorluğu", desc: "Jül Sezar tarafından İskenderiyeli astronom Sosigenes'in önerisiyle yürürlüğe konan güneş takvimidir. 365,25 gün esasına dayanır, ancak her 128 yılda 1 gün hata verdiği için 1582'de Miladi takvimle değiştirilmiştir.", img: "assets/calendars/julian.jpg" },
-    { name: "12 Hayvanlı Türk Takvimi", role: "Antik Çağ • Orta Asya", desc: "Eski Türklerin ve Asya boylarının kullandığı ilk güneş takvimidir. Her yılın bir hayvan adıyla (Sıçan, Pars, Ejderha, Yılan vb.) anıldığı 12 yıllık döngülere sahiptir.", img: "assets/calendars/turkic.jpg" }
+    { name: "Rûmî Takvim", role: "1840 • Osmanlı İmparatorluğu", desc: "Osmanlı Devleti'nde mali ve resmi işleri mevsimlerle uyumlu hale getirmek için geliştirilmiştir. Başlangıcı yine Hicret'tir ancak hesaplama olarak Güneş yılını (Jülyen) esas alır.", img: "assets/calendars/rumi.jpg" }
 ];
 
 // ==========================================
@@ -347,28 +345,20 @@ const calendarFeatures = [
 
 const calendarData = [
     {
-        name: "12 Hayvanlı Türk Takvimi",
-        data: ["-", "+", "365g 6s", "Tarım,mevsim,hayvancılık", "1/128 gün", "(M.S. 6-9. yy)", "Hunlar, Göktürkler", "Belli bir olay yok", "Kullanımı kolay", "Sınırlı bölge ve kültür", "Bilinmiyor", "İslamiyet sonrası Hicri kullanıldı"]
-    },
-    {
         name: "Hicri (Kameri) Takvim",
-        data: ["+", "-", "354g", "İslam", "Her yıl 10-11 gün geri", "(M.S. 622'den itibaren)", "İslam dünyası", "Hicret (622)", "Din esaslı", "Mevsimlerle uyuşmaz", "İslam alimleri", "Mevsimlerle uyuşmaz"]
+        data: ["+", "-", "354g", "İslam", "1/2500 yıl", "622 - 1925", "İslam dünyası", "Hicret (622)", "Din esaslı", "Mevsimlerle uyuşmaz", "İslam alimleri", "Mevsimlerle uyuşmaz"]
     },
     {
         name: "Celali Takvim",
-        data: ["-", "+", "365g 5s 49d", "Tarım,vergi", "1/5000 gün", "1079", "Büyük Selçuklular", "Melikşah Dönemi", "Mevsimlerle tamamen uyumlu", "Yaygınlaşmaması", "Ömer Hayyam ve Selçuklu Astronomları", "Sınırlı bölgede kullanıldı, yaygınlaşmadı"]
+        data: ["-", "+", "365g 5s 49d", "Tarım,vergi", "1/5000 yıl", "1079", "Büyük Selçuklular", "Melikşah Dönemi", "Mevsimlerle tamamen uyumlu", "Yaygınlaşmaması", "Ömer Hayyam ve Selçuklu Astronomları", "Sınırlı bölgede kullanıldı, yaygınlaşmadı"]
     },
     {
         name: "Rumi (Mali) Takvim",
-        data: ["-", "+", "365g 6s", "Mali ve resmi", "1/3300 gün", "(1839-1926)", "Osmanlı Devleti", "Hicret (622)", "Mali kolaylık", "Sadece mali işlere uygundu", "Osmanlı devlet yetkilileri", "Cumhuriyetle Miladiye geçildi"]
-    },
-    {
-        name: "Julian Takvimi",
-        data: ["-", "+", "365g 6s", "Roma Reformu", "1/128 gün", "(M.Ö. 46 - M.S. 1582)", "Roma İmparatorluğu", "Roma reformu", "Basit, sabit artık yıl kuralı", "Mevsimler zamanla kayar", "Julius Caesar", "Mevsim kayması"]
+        data: ["-", "+", "365g 6s", "Mali ve resmi", "1/128 yıl", "(1839-1926)", "Osmanlı Devleti", "Hicret (622)", "Mali kolaylık", "Sadece mali işlere uygundu", "Osmanlı devlet yetkilileri", "Cumhuriyetle Miladiye geçildi"]
     },
     {
         name: "Gregoryen (Miladi) Takvim",
-        data: ["-", "+", "365g 5s 49d", "Uluslar arası birlik", "1/3300 gün", "1582'den günümüze", "Tüm Dünya", "Hz. İsa'nın doğumu kabulü", "Küresel uyum", "Astronomik olarak Celali kadar uygun değil", "Papa XIII. Gregorius", "Günümüzde kullanılmaya devam ediyor"]
+        data: ["-", "+", "365g 5s 49d", "Uluslar arası birlik", "1/3300 yıl", "1582'den günümüze", "Tüm Dünya", "Hz. İsa'nın doğumu kabulü", "Küresel uyum", "Astronomik olarak Celali kadar uygun değil", "Papa XIII. Gregorius", "Günümüzde kullanılmaya devam ediyor"]
     }
 ];
 
